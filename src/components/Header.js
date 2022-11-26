@@ -18,8 +18,6 @@ const styles = StyleSheet.create({
         backgroundColor: colors.acento,
         height: 90,
         paddingTop: 36,
-        alignItems: "center",
-        justifyContent: "center",
     },
     headerTitle: {
         color: colors.oscuro,
