@@ -1,5 +1,6 @@
 import { useFonts } from "expo-font";
 import CHelpNavigator from "./src/navigation/CHelpNavigator";
+import BottomTabNavigator from "./src/navigation/BottomTabNavigator";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -11,7 +12,7 @@ export default function App() {
   }
 
   return (
-      <CHelpNavigator />
+    <BottomTabNavigator />
   );
 }
 

@@ -12,7 +12,6 @@ const Stack = createNativeStackNavigator();
 
 export default CHelpNavigator = () => {
   return (
-    <NavigationContainer>
       <Stack.Navigator initialRouteName="HomeScreen"
         screenOptions={{
           headerStyle: { backgroundColor: colors.acento },
@@ -26,6 +25,5 @@ export default CHelpNavigator = () => {
         <Stack.Screen name="LanzarScreen" component={LanzarScreen} options={{ title: "Lanzar Tarea" }} />
         <Stack.Screen name="EnDesarrolloScreen" component={EnDesarrolloScreen} options={{ title: "Not yet" }} />
       </Stack.Navigator>
-    </NavigationContainer>
   );
 };
