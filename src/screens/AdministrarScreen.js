@@ -1,54 +1,34 @@
-import { Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
-import colors from "../constants/colors";
+import { FlatList } from "react-native";
+import Item from "../components/Item";
 
-const AdministrarScreen = ({ navigation }) => {
-  console.log('AdministrarScreen')
+import { useSelector, useDispatch, connect } from "react-redux";
+import { selectTipo } from "../actions/Tipo.action";
+
+const CrearScreen = ({ navigation }) => {
+  const tiposTarea = useSelector((state) => state.tipos.imagen);
+  const dispatch = useDispatch();
+
+  const handleSelectedCategory = (item) => {
+    dispatch(selectTipo(item.id));
+    navigation.navigate("CrearScreen", {
+      name: item.title,
+    });
+  };
+
+  const renderItem = ({ item }) => (
+    <Item item={item} onSelected={handleSelectedCategory} />
+  );
+
   return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.boton} onPress={() => navigation.navigate("EnDesarrolloScreen")} > 
-        <View>
-          <Text style={styles.textoBoton}>CREAR TAREA</Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.boton} onPress={() => navigation.navigate("EnDesarrolloScreen")} > 
-        <View>
-          <Text  style={styles.textoBoton}>CAMBIAR TAREAS</Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.boton} onPress={() => navigation.navigate("EnDesarrolloScreen")} > 
-        <View>
-          <Text style={styles.textoBoton}>BORRAR TAREA</Text>
-        </View>
-      </TouchableOpacity>
-    </View>
+    <FlatList
+      data={tiposTarea}
+      keyExtractor={(item) => item.id}
+      renderOneItem={renderItem}
+      numColumns={2}
+    />
   );
 };
 
-export default AdministrarScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: "100%",
-    backgroundColor: colors.claro,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  boton: {
-    backgroundColor: colors.principal,
-    height: 70,
-    marginBottom: 50,
-    width: "70%",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 50,
-  },
-  textoBoton: {
-    fontFamily: "Nunito",
-    fontSize: 20,
-    color: colors.oscuro,
-  },
-});
-
+export default connect()(CrearScreen);
 

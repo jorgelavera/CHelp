@@ -6,7 +6,7 @@ const CrearScreen = ({ navigation }) => {
   console.log('CrearScreen')
   return (
     <View style={styles.container}>
-      <Text style={styles.botones}>En desarrollo</Text>
+      <Text style={styles.boton}>En desarrollo</Text>
     </View>
   );
 };
