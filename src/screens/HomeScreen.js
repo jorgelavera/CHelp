@@ -1,9 +1,8 @@
-import { Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 import colors from "../constants/colors";
 
 const HomeScreen = ({ navigation }) => {
-  console.log('HomeScreen')
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.boton} onPress={() => navigation.navigate("ConfiguracionScreen")} > 

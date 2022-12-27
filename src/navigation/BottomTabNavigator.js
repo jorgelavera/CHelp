@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import CHelpNavigator from "./CHelpNavigator";
-import LanzarScreen from "../screens/LanzarScreen";
+import NewPlaceScreen from "../screens/NewPlaceScreen";
 import colors from "../constants/colors";
 
 const BottomTabs = createBottomTabNavigator();
@@ -33,13 +33,13 @@ export default BottomTabNavigator = () => {
           }}
         />
         <BottomTabs.Screen
-          name="LanzarScreen"
-          component={LanzarScreen}
+          name="NewPlaceScreen"
+          component={NewPlaceScreen}
           options={{
             tabBarIcon: ({ focus }) => (
               <View style={styles.item}>
                 <MaterialCommunityIcons name="rocket-launch-outline" size={24} color="black" />
-                <Text>Lanzar Tarea</Text>
+                <Text>Ubicación</Text>
               </View>
             ),
           }}
